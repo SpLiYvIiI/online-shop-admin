@@ -1,9 +1,7 @@
 import React from 'react';
-import { Button, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import NavigationBar from '../NavigationBar';
 import Typography from '@mui/material/Typography';
-import ProductsFilter from '../ProductsPage/ProductsFilter';
-import ProductsTable from '../ProductsPage/ProductsTable';
 import NotSupported from '../NotSupported';
 
 const OrdersPage = () => {
@@ -32,7 +30,7 @@ const OrdersPage = () => {
             paddingLeft={'200px'}
           >
             <Grid item xs={12}>
-              <Typography variant="h4">Customers Page</Typography>
+              <Typography variant="h4">Orders Page</Typography>
             </Grid>
             <Grid item xs={12}>
               <NotSupported />

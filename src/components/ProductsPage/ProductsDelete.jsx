@@ -4,7 +4,7 @@ import NavigationBar from '../NavigationBar';
 import Typography from '@mui/material/Typography';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const ProductsPage = ({ products, setProducts, setFilteredProducts }) => {
+const ProductsDelete = ({ products, setProducts, setFilteredProducts }) => {
   const [currentProduct, setCurrentProduct] = useState(null);
   let { id } = useParams();
   const navigate = useNavigate();
@@ -14,16 +14,20 @@ const ProductsPage = ({ products, setProducts, setFilteredProducts }) => {
   };
 
   const deleteProduct = () => {
-    const newProducts = products.filter(product => product.ProductID != id);
+    const newProducts = products.filter(
+      product => product.ProductID.toString() !== id
+    );
     setProducts(newProducts);
     setFilteredProducts(newProducts);
     navigate('/');
   };
 
   useEffect(() => {
-    const product = products.filter(product => product.ProductID == id);
+    const product = products.filter(
+      product => product.ProductID.toString() === id
+    );
     setCurrentProduct(product ? product[0] : null);
-  }, [products]);
+  }, [products, id]);
 
   return (
     <div>
@@ -105,4 +109,4 @@ const ProductsPage = ({ products, setProducts, setFilteredProducts }) => {
   );
 };
 
-export default ProductsPage;
+export default ProductsDelete;

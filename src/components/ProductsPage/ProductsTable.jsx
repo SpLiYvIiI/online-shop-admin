@@ -22,6 +22,7 @@ const ProductsTable = ({ products, filteredProducts, setFilteredProducts }) => {
   };
   const editProduct = productId => {
     setFilteredProducts(products);
+    navigate(`/products/edit/${productId}`);
     console.log(productId);
   };
 

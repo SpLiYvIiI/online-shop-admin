@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import NavigationBar from '../NavigationBar';
+import Typography from '@mui/material/Typography';
+import NotSupported from '../NotSupported';
 
 const CustomersPage = () => {
   return (
@@ -17,7 +19,23 @@ const CustomersPage = () => {
           <NavigationBar />
         </Grid>
         <Grid item xs={12}>
-          <h1>Hi im Customers Page</h1>
+          <Grid
+            container
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            rowSpacing={2}
+            columnSpacing={0}
+            paddingRight={'200px'}
+            paddingLeft={'200px'}
+          >
+            <Grid item xs={12}>
+              <Typography variant="h4">Customers Page</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <NotSupported />
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </div>

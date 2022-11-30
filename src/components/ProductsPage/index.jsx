@@ -4,11 +4,17 @@ import NavigationBar from '../NavigationBar';
 import ProductsTable from './ProductsTable';
 import Typography from '@mui/material/Typography';
 import ProductsFilter from './ProductsFilter';
+import { useNavigate } from 'react-router-dom';
 
 const ProductsPage = ({ products, filteredProducts, setFilteredProducts }) => {
+  const navigate = useNavigate();
+
+  const navigateToProductsAdd = () => {
+    navigate('/products/create');
+  };
   const [isFilterActive, setIsFilterActive] = useState(false);
 
-  const toggleFilterActive = e => {
+  const toggleFilterActive = () => {
     if (isFilterActive) {
       setFilteredProducts(products);
       setIsFilterActive(false);
@@ -76,6 +82,7 @@ const ProductsPage = ({ products, filteredProducts, setFilteredProducts }) => {
                   backgroundColor: 'darkblue',
                   color: 'white',
                 }}
+                onClick={() => navigateToProductsAdd()}
               >
                 Create New Product
               </Button>

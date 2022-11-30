@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import ProductsPage from './ProductsPage';
+import initial_data from '../static/initial_data';
+import ProductsDelete from './ProductsPage/ProductsDelete';
+import ProductsEdit from './ProductsPage/ProductsEdit';
+import ProductsAdd from './ProductsPage/ProductsAdd';
 import CustomersPage from './CustomersPage';
 import OrdersPage from './OrdersPage';
 import ReportsPage from './ReportsPage';
-import initial_data from '../static/initial_data';
-import ProductsDelete from './ProductsPage/ProductsDelete';
 
 const Main = () => {
   const [products, setProducts] = useState(initial_data);
@@ -38,7 +40,26 @@ const Main = () => {
               />
             }
           ></Route>
-          <Route path={'/products/edit/:id'} element={<ReportsPage />}></Route>
+          <Route
+            path={'/products/edit/:id'}
+            element={
+              <ProductsEdit
+                products={products}
+                setProducts={setProducts}
+                setFilteredProducts={setFilteredProducts}
+              />
+            }
+          ></Route>
+          <Route
+            path={'/products/create'}
+            element={
+              <ProductsAdd
+                products={products}
+                setProducts={setProducts}
+                setFilteredProducts={setFilteredProducts}
+              />
+            }
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>

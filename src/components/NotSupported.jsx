@@ -1,7 +1,12 @@
 import React from 'react';
 import { Grid } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+import Paper from '@mui/material/Paper';
+import ComingSoonImage from '../static/coming_soon.jpg';
 
 const NotSupported = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Grid
@@ -12,8 +17,26 @@ const NotSupported = () => {
         rowSpacing={2}
         columnSpacing={0}
       >
-        <Grid item xs={12}>
-          <img src="../static/coming_soon.png" alt="Coming soon"></img>
+        <Grid item>
+          <Paper variant="outlined">
+            <img src={ComingSoonImage} alt="coming_soon" height='300px' width='350px'/>
+          </Paper>
+        </Grid>
+        <Grid item>
+          <Typography
+            style={{
+              marginTop: '100px',
+              marginLeft: '20px',
+              color: 'blue',
+              cursor: 'pointer',
+            }}
+            variant={'h6'}
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            Back to Products
+          </Typography>
         </Grid>
       </Grid>
     </div>
