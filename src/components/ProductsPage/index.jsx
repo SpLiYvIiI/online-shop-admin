@@ -10,6 +10,7 @@ const ProductsPage = ({ products, filteredProducts, setFilteredProducts }) => {
   const navigate = useNavigate();
 
   const navigateToProductsAdd = () => {
+    setFilteredProducts(products);
     navigate('/products/create');
   };
   const [isFilterActive, setIsFilterActive] = useState(false);

@@ -8,6 +8,8 @@ const ProductsFilter = ({ products, setFilteredProducts }) => {
   const [filterTo, setFilterTo] = useState('');
 
   const applyFilters = () => {
+    console.log(filterFrom);
+    console.log(filterTo);
     const name = filterName.toLowerCase().trim();
     const filteredProducts = products.filter(product => {
       let shouldInclude = true;
@@ -16,7 +18,7 @@ const ProductsFilter = ({ products, setFilteredProducts }) => {
       if (
         (filterName && !productName.includes(name)) ||
         (filterFrom && listPrice < filterFrom) ||
-        (filterTo && filterTo > filterFrom)
+        (filterTo && listPrice > filterTo)
       ) {
         shouldInclude = false;
       }
